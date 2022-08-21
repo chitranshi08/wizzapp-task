@@ -36,6 +36,7 @@ export default {
   <main>
     <img class="loader" v-if="loading" src="/loader.gif" />
     <h1 class="page-title">Character Table</h1>
+    <span>*Click on any row, to go to its card detail page</span>
     <table>
       <thead>
         <tr>
