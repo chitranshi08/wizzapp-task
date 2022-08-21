@@ -33,10 +33,10 @@ export default {
 </script>
 
 <template>
-  <main>
+  <main class="home-container">
     <img class="loader" v-if="loading" src="/loader.gif" />
     <h1 class="page-title">Character Table</h1>
-    <span>*Click on any row, to go to its card detail page</span>
+    <div class="ins">*Click on any row, to go to its card detail page</div>
     <table>
       <thead>
         <tr>
@@ -60,6 +60,9 @@ export default {
   </main>
 </template>
 <style>
+.home-container .ins{
+  margin-bottom:10px;
+}
 td,
 th {
   padding: 16px;
