@@ -1,6 +1,10 @@
 <script>
 import { store } from "./../store.js";
+import Card from "./../Components/Card.vue";
 export default {
+  components: {
+    Card,
+  },
   data() {
     return {
       store,
@@ -11,15 +15,8 @@ export default {
 <template>
   <div class="about">
     <h1 class="page-title">Card</h1>
-    <div class="card">
-      <div class="form-group">
-        <img :src="store?.cardData?.image" />
-      </div>
-      <div class="form-group"><strong>Name - </strong>{{ store?.cardData?.name }}</div>
-      <div class="form-group"><strong>Age - </strong>{{ store?.cardData?.age }}</div>
-      <div class="form-group">
-        <strong>Gender - </strong>{{ store?.cardData?.gender }}
-      </div>
+    <div>
+      <Card v-for="(card, index) in store.cardData" :card="card" :key="index" />
     </div>
   </div>
 </template>
@@ -33,6 +30,11 @@ export default {
   border: 1px solid rgba(224, 224, 224, 1);
   display: inline-block;
   font-size: 20px;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  margin-right: 15px;
+  margin-bottom: 15px;
 }
 img {
   width: 200px;

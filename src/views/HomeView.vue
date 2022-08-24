@@ -4,10 +4,11 @@ import { store } from "./../store.js";
 export default {
   created() {
     this.loading = true;
-    fetch("https://bobsburgers-api.herokuapp.com/characters/?limit=50")
+    fetch("https://api.publicapis.org/entries")
       .then((res) => res.json())
       .then((res) => {
-        this.tableData = res;
+        store.setCardData(res.entries);
+        this.tableData = res.entries;
         console.log(res);
       })
       .finally(() => {
@@ -24,7 +25,6 @@ export default {
   },
   methods: {
     goToCard: function (data) {
-      store.setCardData(data);
       this.$router.push("/card");
       console.log("clicked abc");
     },
@@ -40,20 +40,20 @@ export default {
     <table>
       <thead>
         <tr>
-          <th>#</th>
-          <th>NAME</th>
-          <th>GENDER</th>
-          <th>AGE</th>
-          <th>HAIR COLOR</th>
+          <th>API</th>
+          <th>CATEGORY</th>
+          <th>AUTH</th>
+          <th>DESCRIPTION</th>
+          <th>HTTPS</th>
         </tr>
       </thead>
       <tbody>
         <tr @click="goToCard(row)" v-for="row in tableData">
-          <td>{{ row.id }}</td>
-          <td>{{ row.name }}</td>
-          <td>{{ row.gender }}</td>
-          <td>{{ row.age }}</td>
-          <td>{{ row.hairColor }}</td>
+          <td>{{ row.API }}</td>
+          <td>{{ row.Category }}</td>
+          <td>{{ row.Auth }}</td>
+          <td>{{ row.Description }}</td>
+          <td>{{ row.HTTPS }}</td>
         </tr>
       </tbody>
     </table>

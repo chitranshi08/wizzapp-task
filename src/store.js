@@ -5,9 +5,12 @@ export const store = reactive({
   setCardData(data) {
     this.cardData = data
   },
-  theme:"light",
-  setTheme(theme){
+  theme: "light",
+  setTheme(theme) {
     this.theme = theme
+  },
+  removeCard(key) {
+    this.cardData.splice(key, 1)
   }
-  
+
 })
