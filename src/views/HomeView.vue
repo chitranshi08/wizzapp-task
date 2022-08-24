@@ -26,7 +26,7 @@ export default {
     goToCard: function (data) {
       store.setCardData(data);
       this.$router.push("/card");
-      console.log("clicked");
+      console.log("clicked abc");
     },
   },
 };
@@ -60,8 +60,8 @@ export default {
   </main>
 </template>
 <style>
-.home-container .ins{
-  margin-bottom:10px;
+.home-container .ins {
+  margin-bottom: 10px;
 }
 td,
 th {
